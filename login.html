@@ -6,55 +6,71 @@
 </head>
 <body>
 
-    <h1>Carnicería Lizz</h1>
-    
-    <p>
-        <a href="index.html">Inicio</a> | 
-        <a href="menu_prod.html">Productos</a> | 
-        <a href="sucursales.html">Sucursales</a> |
-        <a href="recomendaciones.html">Recomendaciones</a>
-    </p>
-
-    <hr>
-
-    <h2>Ingresar a mi cuenta</h2>
-    <form action="procesar_login.php" method="post">
-        <p>Correo electrónico:</p>
-        <input type="email" name="correo" required>
+    <header>
+        <h1>Carnicería Lizz</h1>
+        <img src="img/logo.jpg" alt="Logo de Carnicería Lizz" width="200">
         
-        <p>Contraseña:</p>
-        <input type="password" name="password" required>
-        
-        <br><br>
-        <input type="submit" value="Iniciar Sesión">
-    </form>
+        <nav>
+            <p>
+                <a href="index.html">Inicio</a> | 
+                <a href="menu_prod.html">Menú de Productos</a> | 
+                <a href="sucursales.html">Sucursales</a> | 
+                <a href="recomendaciones.html">Recomendaciones</a> | 
+                <a href="empresa.html">Conózcanos</a> |
+                <a href="login.html">Mi Perfil</a>
+            </p>
+        </nav>
+        <hr>
+    </header>
 
-    <hr>
+    <main>
+        <section id="login">
+            <h2>Ingresar a mi Cuenta</h2>
+            <p>Si ya eres cliente, introduce tus datos para pedir en línea:</p>
+            
+            <form action="#" method="POST">
+                <p>Correo Electrónico:</p>
+                <input type="email" name="user_email" placeholder="ejemplo@correo.com" required>
 
-    <h2>Registro de nuevos clientes</h2>
-    <form action="registrar_usuario.php" method="post">
-        <p>Nombre completo:</p>
-        <input type="text" name="nombre">
+                <p>Contraseña:</p>
+                <input type="password" name="user_password" required>
 
-        <p>Teléfono:</p>
-        <input type="tel" name="telefono">
+                <br><br>
+                <input type="submit" value="Entrar a mi Perfil">
+            </form>
+        </section>
 
-        <p>Dirección completa:</p>
-        <textarea name="direccion" rows="4" cols="40"></textarea>
+        <section id="registro">
+            <hr>
+            <h2>¿Eres nuevo en Carnicería Lizz?</h2>
+            <p>Regístrate para guardar tu dirección y agilizar tus pedidos:</p>
 
-        <p>¿Cómo prefieres que te contactemos?</p>
-        <input type="radio" name="contacto" value="whatsapp"> WhatsApp
-        <input type="radio" name="contacto" value="llamada"> Llamada
-        
-        <br><br>
-        <input type="submit" value="Crear mi cuenta">
-        <input type="reset" value="Borrar todo">
-    </form>
+            <form action="#" method="POST">
+                <p>Nombre Completo:</p>
+                <input type="text" name="nombre_completo" required>
+
+                <p>Teléfono (WhatsApp):</p>
+                <input type="tel" name="telefono" placeholder="4430000000">
+
+                <p>Dirección de Entrega:</p>
+                <textarea name="direccion_entrega" rows="3" cols="40" placeholder="Calle, número y colonia..."></textarea>
+
+                <p>¿Cómo prefieres recibir confirmación?</p>
+                <input type="radio" name="aviso" value="wa"> WhatsApp
+                <input type="radio" name="aviso" value="ll"> Llamada
+                
+                <br><br>
+                <input type="submit" value="Crear mi Cuenta">
+                <input type="reset" value="Limpiar Formulario">
+            </form>
+        </section>
+    </main>
 
     
 
     <footer>
-        <p>Carnicería Lizz &copy; 2026</p>
+        <hr>
+        <p>Carnicería Lizz © 2026 - Tu carnicería de confianza en la Obrera.</p>
     </footer>
 
 </body>
