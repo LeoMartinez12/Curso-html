@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carnicería Lizz - Mi Perfil</title>
+</head>
+<body>
+
+    <h1>Carnicería Lizz</h1>
+    
+    <p>
+        <a href="index.html">Inicio</a> | 
+        <a href="menu_prod.html">Productos</a> | 
+        <a href="sucursales.html">Sucursales</a> |
+        <a href="recomendaciones.html">Recomendaciones</a>
+    </p>
+
+    <hr>
+
+    <h2>Ingresar a mi cuenta</h2>
+    <form action="procesar_login.php" method="post">
+        <p>Correo electrónico:</p>
+        <input type="email" name="correo" required>
+        
+        <p>Contraseña:</p>
+        <input type="password" name="password" required>
+        
+        <br><br>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+
+    <hr>
+
+    <h2>Registro de nuevos clientes</h2>
+    <form action="registrar_usuario.php" method="post">
+        <p>Nombre completo:</p>
+        <input type="text" name="nombre">
+
+        <p>Teléfono:</p>
+        <input type="tel" name="telefono">
+
+        <p>Dirección completa:</p>
+        <textarea name="direccion" rows="4" cols="40"></textarea>
+
+        <p>¿Cómo prefieres que te contactemos?</p>
+        <input type="radio" name="contacto" value="whatsapp"> WhatsApp
+        <input type="radio" name="contacto" value="llamada"> Llamada
+        
+        <br><br>
+        <input type="submit" value="Crear mi cuenta">
+        <input type="reset" value="Borrar todo">
+    </form>
+
+    
+
+    <footer>
+        <p>Carnicería Lizz &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
