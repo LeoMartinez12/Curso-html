@@ -112,3 +112,40 @@ nav a:hover {
     background-color: #ffcc00;
     color: #333;
 }
+
+/* Espaciado para el contenido principal */
+main {
+    padding: 40px 5%; /* 40px arriba/abajo y 5% a los lados para despegar del borde */
+    min-height: 70vh; /* Asegura que el contenido ocupe al menos el 70% de la pantalla */
+}
+
+/* Espaciado extra para títulos y párrafos */
+h2, h3 {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.8; /* Mejora la legibilidad */
+}
+
+footer {
+    background-color: #333; /* Gris oscuro casi negro */
+    color: white;           /* Texto blanco para contraste */
+    padding: 50px 0;       /* Mucho espacio arriba y abajo */
+    margin-top: 80px;       /* Gran espacio de separación con el body */
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Opcional: una línea roja decorativa arriba del footer para unir el concepto */
+footer {
+    border-top: 5px solid #a01a1a; 
+}
