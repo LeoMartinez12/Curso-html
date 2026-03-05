@@ -15,7 +15,7 @@ body {
 header {
     background-color: #a01a1a; /* Rojo institucional */
     color: white;
-    padding: 10px 5%; /* Header delgado: 10px arriba/abajo */
+    padding: 10px 0; /* Header delgado: 10px arriba/abajo */
     position: sticky; /* Se queda fijo al bajar (opcional) */
     top: 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra elegante */
@@ -25,6 +25,9 @@ header {
     display: flex;
     justify-content: space-between; /* Logo a la izq, Menú a la der */
     align-items: center; /* Centra verticalmente */
+    /* Usamos un ancho del 95% para que esté muy pegado a las orillas */
+    width: 96%; 
+    margin: 0 auto; /* Centra el contenedor pero permitiendo que use casi todo el ancho */
 }
 
 .marca {
@@ -33,21 +36,29 @@ header {
     gap: 10px; /* Separación entre logo y nombre */
     font-size: 1.5rem;
     font-weight: bold;
+    text-decoration: none; /* Quita el subrayado del enlace del logo */
+    color: white; /* Asegura que el texto siga siendo blanco */
 }
 
 .marca img {
     border-radius: 50%; /* Hace el logo circular si es cuadrado */
 }
 
+nav {
+    display: flex;
+    justify-content: flex-end; /* Empuja los enlaces a que inicien desde la derecha */
+}
+
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px; /* Espacio entre los enlaces */
+    margin-left: 25px; /* Espacio entre los enlaces */
     font-size: 0.9rem;
     transition: 0.3s; /* Suaviza el cambio de color */
+    white-space: nowrap; /* Evita que los nombres largos se partan en dos líneas */
 }
 
 nav a:hover {
     color: #ffcc00;
-    border-bottom: 2px solid #ffcc00; /* Línea decorativa al pasar el mouse */
+    border-bottom: 2px solid #f8f2da; /* Línea decorativa al pasar el mouse */
 }
