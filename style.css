@@ -192,6 +192,51 @@ address {
     border: 1px solid var(--rojo-lizz);
 }
 
+/* --- SECCIÓN HISTORIA --- */
+.seccion-historia {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--blanco);
+    border-left: 8px solid var(--rojo-lizz); /* Franja roja distintiva */
+    box-shadow: var(--sombra);
+    border-radius: 4px;
+}
+
+.seccion-historia h2 {
+    color: var(--rojo-lizz);
+    margin-bottom: 15px;
+}
+
+.seccion-historia p {
+    line-height: 1.8;
+    color: var(--gris-oscuro);
+    margin-bottom: 10px;
+}
+
+/* --- SECCIÓN EQUIPO --- */
+.seccion-equipo {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+.seccion-equipo h2 {
+    color: var(--dorado); /* Color para resaltar autoridad */
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.seccion-equipo p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
 /* 4. FORMULARIOS Y TABLAS*/
 input, textarea, select {
     width: 100%;
