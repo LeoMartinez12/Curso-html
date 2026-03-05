@@ -14,6 +14,7 @@
                 <a href="index.html">
                     <img src="img/logo_carniceria.png" alt="Logo" width="80">
                 </a>
+                <span>Carnicería Lizz</span>
             </div>
             
             <nav>
@@ -31,44 +32,49 @@
 
     <main>
         <section id="ubicacion">
-            <div class="titulo-pagina">
+            <div style="text-align: center; margin-bottom: 20px;">
                 <h2>Nuestras Ubicaciones</h2>
                 <p>Visítanos y comprueba la calidad de nuestros cortes frescos.</p>
             </div>
 
-            <div class="contenedor-sucursales">
-                <article class="tarjeta-sucursal">
-                    <div class="info-sucursal">
-                        <h3>Sucursal Obrera (Principal)</h3>
+            <div class="flex-layout">
+                
+                <article class="card-lizz" style="max-width: 850px; text-align: left;">
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
                         
-                        <address>
-                            <strong>Calle:</strong> Primo Tapia, Colonia Obrera #346<br>
-                            <strong>Ciudad:</strong> Morelia, Michoacán, México.<br>
-                            <strong>Teléfono:</strong> 443-000-00-00
-                        </address>
-                        
-                        <div class="enlace-mapa">
-                            <a href="https://maps.google.com" target="_blank" class="boton-mapa">
+                        <div style="flex: 1; min-width: 250px;">
+                            <h3>Sucursal Obrera (Principal)</h3>
+                            <address style="font-style: normal; margin-bottom: 20px;">
+                                <strong>Calle:</strong> Primo Tapia, Colonia Obrera #346<br>
+                                <strong>Ciudad:</strong> Morelia, Michoacán, México.<br>
+                                <strong>Teléfono:</strong> 443-000-00-00
+                            </address>
+                            <a href="https://maps.google.com" target="_blank" class="btn-lizz" style="width: auto;">
                                 Ver ubicación en el mapa
                             </a>
                         </div>
+
+                        <div style="flex: 1; min-width: 250px; background-color: #fcfcfc; padding: 15px; border-radius: 5px;">
+                            <h3 style="font-size: 1.2rem;">Horarios de Atención</h3>
+                            <ul style="list-style: none;">
+                                <li style="padding: 5px 0; border-bottom: 1px solid #eee;"><strong>Lunes a Sábado:</strong> 8:30 AM - 4:00 PM</li>
+                                <li style="padding: 5px 0; border-bottom: 1px solid #eee;"><strong>Domingos:</strong> 8:30 AM - 2:00 PM</li>
+                                <li style="color: var(--rojo-lizz); font-weight: bold; margin-top: 10px; text-align: center;">
+                                    ¡Día de Carnitas! 
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
-                    <div class="info-horarios">
-                        <h3>Horarios de Atención</h3>
-                        <ul>
-                            <li><strong>Lunes a Sabado:</strong> 8:30 AM - 4:00 PM</li>
-                            <li><strong>Domingos:</strong> 8:30 AM - 2:00 PM</li>
-                            <li class="especial">¡Día de Carnitas!</li>
-                        </ul>
-                    </div>
                 </article>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Carnicería Lizz © 2026 - Todos los derechos reservados.</p>
+        <p>Carnicería Lizz &copy; 2026 - Todos los derechos reservados.</p>
     </footer>
 
 </body>

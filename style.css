@@ -1,4 +1,15 @@
-/* Esto selecciona TODO en la página */
+/* 1. VARIABLES Y CONFIGURACIÓN BASE*/
+:root {
+    --rojo-lizz: #a01a1a;
+    --dorado: #ffcc00;
+    --negro: #000000;
+    --gris-oscuro: #333333;
+    --gris-fondo: #f4f4f4;
+    --blanco: #ffffff;
+    --sombra: 0 4px 15px rgba(0,0,0,0.1);
+    --transicion: 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,564 +19,253 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Un gris muy claro de fondo */
-    color: #333; /* Gris oscuro para el texto, menos cansado que el negro puro */
+    background-color: var(--gris-fondo);
+    color: var(--gris-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* 2. HEADER Y NAVEGACIÓN (Layout Global*/
 header {
-    background-color: #000000; 
-    color: white;
-    padding: 10px 0; /* Header delgado: 10px arriba/abajo */
-    position: sticky; /* Se queda fijo al bajar (opcional) */
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 10px 0;
+    position: sticky;
     top: 0;
-    z-index: 9999; /* Un número alto asegura que siempre esté arriba de todo */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra elegante */
+    z-index: 10000; /* Prioridad máxima */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .contenedor-header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Esto alinea verticalmente el logo, el texto y el menú */
-    width: 96%; 
+    align-items: center;
+    width: 96%;
     margin: 0 auto;
 }
 
 .marca {
     display: flex;
-    align-items: center; /* Asegura que el texto "Carnicería Lizz" esté a la misma altura que el centro del logo */
+    align-items: center;
     gap: 15px;
-    text-decoration: none !important; /* ELIMINA LA LÍNEA DE SUBRAYADO */
-    color: white !important; /* ELIMINA EL COLOR AZUL DE ENLACE */
+    text-decoration: none !important;
+    color: var(--blanco) !important;
     font-size: 1.6rem;
     font-weight: bold;
 }
 
-.marca:visited, .marca:active, .marca:hover {
-    color: white; /* Mantiene el color blanco aunque ya hayas hecho clic */
-    text-decoration: none;
-}
-
-.marca img {
-    display: block; /* Quita espacios fantasma debajo de la imagen */
-    height: 50px;   /* Ajusta esto según el tamaño que desees */
-    width: auto;
-}
-
-nav {
-    display: flex;
-    justify-content: flex-end; /* Empuja los enlaces a que inicien desde la derecha */
-}
+.marca img { height: 50px; width: auto; }
 
 nav a {
-    color: white;
+    color: var(--blanco);
     text-decoration: none;
-    margin-left: 25px; /* Espacio entre los enlaces */
+    margin-left: 25px;
     font-size: 0.9rem;
-    transition: 0.3s; /* Suaviza el cambio de color */
-    white-space: nowrap; /* Evita que los nombres largos se partan en dos líneas */
+    transition: var(--transicion);
+    white-space: nowrap;
 }
 
 nav a:hover {
-    color: #ffcc00;
-    border-bottom: 2px solid #f8f2da; /* Línea decorativa al pasar el mouse */
+    color: var(--dorado);
+    border-bottom: 2px solid var(--dorado);
 }
 
-/*ESTILO DE LA IMAGEN DE BIENVENIDA */
+.flex-layout {
+    display: flex;          /* Activa el diseño flexible */
+    flex-wrap: wrap;       /* Si no caben, las manda abajo (ideal para celulares) */
+    gap: 25px;             /* El espacio exacto entre cada tarjeta */
+    justify-content: center; /* Centra las tarjetas en la pantalla */
+    padding: 20px;
+    align-items: stretch;  /* Hace que todas las tarjetas tengan la misma altura */
+}
 
-.hero-image {
-    /* Ruta de tu imagen principal */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/portada_carniceria.jpg');
-    
-    height: 500px; /* Altura de la sección */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; /* Hace que la imagen cubra todo el espacio sin deformarse */
-    
+.card-lizz {
+    flex: 1;               /* Permite que la tarjeta crezca */
+    min-width: 300px;      /* Pero que no sea más pequeña de 300px */
+    max-width: 450px;      /* Y que no sea gigante en pantallas grandes */
+    background: var(--blanco);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-top: 5px solid var(--rojo-lizz);
+    padding: 20px;
+    transition: var(--transicion);
+}
+
+/* 3. COMPONENTES REUTILIZABLES (Clases Maestras)*/
+
+/* Contenedor Flexible Universal para tarjetas */
+.flex-layout {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+    gap: 30px;
+    padding: 40px 5%;
 }
 
-.contenido-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para que resalte del fondo */
+/* LA TARJETA UNIVERSAL LIZZ */
+.card-lizz {
+    background-color: var(--blanco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-top: 5px solid var(--rojo-lizz);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+    transition: var(--transicion);
 }
 
-.contenido-hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+.card-lizz:hover { transform: translateY(-5px); }
+
+/* Variación para anuncios o elementos especiales */
+.card-especial {
+    border-top-color: var(--dorado);
+    background-color: #fffcf0;
 }
 
-.boton-accion {
-    background-color: #a01a1a; /* Rojo institucional */
-    color: white;
+/* Botón Universal */
+.btn-lizz {
+    display: inline-block;
+    background-color: var(--rojo-lizz);
+    color: var(--blanco);
     padding: 12px 25px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    transition: 0.3s;
-}
-
-.boton-accion:hover {
-    background-color: #ffcc00;
-    color: #333;
-}
-
-/* Espaciado para el contenido principal */
-main {
-    padding: 40px 5%; /* 40px arriba/abajo y 5% a los lados para despegar del borde */
-    min-height: 70vh; /* Asegura que el contenido ocupe al menos el 70% de la pantalla */
-}
-
-/* Espaciado extra para títulos y párrafos */
-h2, h3 {
-    margin-bottom: 20px;
-    margin-top: 10px;
-}
-
-p {
-    margin-bottom: 15px;
-    line-height: 1.8; /* Mejora la legibilidad */
-}
-
-footer {
-    background-color: #333; /* Gris oscuro casi negro */
-    color: white;           /* Texto blanco para contraste */
-    padding: 50px 0;       /* Mucho espacio arriba y abajo */
-    margin-top: 80px;       /* Gran espacio de separación con el body */
-    text-align: center;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-/* Opcional: una línea roja decorativa arriba del footer para unir el concepto */
-footer {
-    border-top: 5px solid #a01a1a; 
-}
-
-/* --- ESTILO PROFESIONAL PARA TABLAS --- */
-
-table {
-    width: 100%;
-    border-collapse: collapse; /* Elimina el espacio doble entre bordes */
-    margin: 20px 0;
-    font-size: 1rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    background-color: white;
-}
-
-table thead tr {
-    background-color: #a01a1a; /* Rojo institucional */
-    color: white;
-    text-align: left;
-    font-weight: bold;
-}
-
-table th, table td {
-    padding: 15px 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Efecto "Cebreado" (Zebra Striping) */
-table tbody tr:nth-of-type(even) {
-    background-color: #f9f9f9; /* Gris muy clarito para filas pares */
-}
-
-/* Efecto Hover: Resalta la fila donde está el mouse */
-table tbody tr:hover {
-    background-color: #f1f1f1;
+    border: none;
     cursor: pointer;
-    transition: 0.2s;
+    text-align: center;
+    transition: var(--transicion);
 }
 
-/* Estilo para las imágenes dentro de la tabla */
-table img {
-    border-radius: 5px;
-    object-fit: cover;
-    border: 1px solid #ddd;
+.btn-lizz:hover { background-color: var(--gris-oscuro); color: var(--blanco); }
+
+.card-lizz ul {
+    padding-left: 0;
 }
 
-/* Contenedor que alinea las tarjetas una al lado de la otra o abajo */
-.contenedor-perfil {
-    display: flex;
-    flex-wrap: wrap; /* Para que en pantallas chicas se ponga uno abajo del otro */
-    justify-content: center;
-    gap: 30px;
-    padding: 50px 5%;
+.card-lizz h3 {
+    margin-bottom: 15px;
+    color: var(--rojo-lizz);
 }
 
-/* Estilo de la "Tarjeta" del formulario */
-.tarjeta-login {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+address {
+    line-height: 1.8;
+}
+
+/* --- Estilos para Recetas --- */
+
+.contenedor-foto-receta {
     width: 100%;
-    max-width: 400px; /* Evita que el formulario sea demasiado ancho */
-    border-top: 4px solid #a01a1a; /* Detalle rojo arriba */
+    height: 200px; /* Altura fija para que todas las tarjetas se vean iguales */
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }
 
-/* Estilo de los campos de entrada */
-.campo {
-    margin-bottom: 20px;
+.foto-receta {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin estirarla */
+    transition: var(--transicion);
 }
 
-.campo label {
-    display: block;
-    margin-bottom: 8px;
+
+.contenido-receta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--rojo-lizz);
+}
+
+.etiqueta-lizz {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 12px;
+    background-color: var(--gris-fondo);
+    color: var(--rojo-lizz);
+    font-size: 0.8rem;
     font-weight: bold;
-    color: #333;
+    border-radius: 20px;
+    border: 1px solid var(--rojo-lizz);
 }
 
-input[type="email"], 
-input[type="password"], 
-input[type="text"], 
-input[type="tel"], 
-textarea {
+/* 4. FORMULARIOS Y TABLAS*/
+input, textarea, select {
     width: 100%;
     padding: 12px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-    box-sizing: border-box; /* Muy importante para que el padding no desborde el ancho */
-    transition: 0.3s;
+    transition: var(--transicion);
 }
 
-/* Efecto cuando el usuario hace clic en el cuadro */
 input:focus, textarea:focus {
-    border-color: #a01a1a;
+    border-color: var(--rojo-lizz);
     outline: none;
     box-shadow: 0 0 5px rgba(160, 26, 26, 0.2);
 }
 
-/* El botón de acción */
-.boton-rojo {
+table {
     width: 100%;
-    background-color: #a01a1a;
-    color: white;
-    padding: 14px;
-    border: none;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--blanco);
+    box-shadow: var(--sombra);
+}
+
+table thead tr { background-color: var(--rojo-lizz); color: var(--blanco); }
+
+table th, table td { padding: 15px 20px; border-bottom: 1px solid #ddd; }
+
+table tbody tr:nth-of-type(even) { background-color: #f9f9f9; }
+
+table img {
     border-radius: 4px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centra la imagen en su celda */
 }
 
-.boton-rojo:hover {
-    background-color: #333;
-}
-
-
-/* --- ESTILOS PARA LA PÁGINA DE SUCURSALES --- */
-
-.contenedor-sucursales {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.tarjeta-sucursal {
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap; /* Se adapta a móviles */
-    width: 100%;
-    max-width: 850px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-top: 5px solid #a01a1a;
-}
-
-.info-sucursal, .info-horarios {
-    flex: 1;
-    padding: 30px;
-    min-width: 300px;
-}
-
-.info-sucursal h3, .info-horarios h3 {
-    color: #a01a1a;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
-.info-sucursal address {
-    font-style: normal;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Estilo para el botón del mapa */
-.boton-mapa {
-    display: inline-block;
-    background-color: #333;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.boton-mapa:hover {
-    background-color: #a01a1a;
-}
-
-.info-horarios ul {
-    list-style: none;
-}
-
-.info-horarios li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.info-horarios li.especial {
-    color: #a01a1a;
-    font-weight: bold;
-    border-bottom: none;
+table td {
+    vertical-align: middle; /* Alinea el texto con el centro de la imagen */
     text-align: center;
-    margin-top: 10px;
-    background-color: #fff8f8;
 }
 
-/* --- ESTILOS PARA LA PÁGINA CONÓZCANOS (EMPRESA) --- */
-
-/* Sección de Historia */
-.seccion-historia {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
-    border-left: 6px solid #a01a1a;
-}
-
-.seccion-historia h2 {
-    color: #a01a1a;
-    margin-bottom: 15px;
-}
-
-/* Contenedor de Tarjetas Misión/Valores */
-.contenedor-nosotros-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.tarjeta-nosotros {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    border-top: 5px solid #a01a1a;
-}
-
-.tarjeta-nosotros h3 {
-    color: #a01a1a;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-/* Estilo de la lista de valores */
-.lista-valores {
-    list-style: none;
-    padding: 0;
-}
-
-.lista-valores li {
-    padding: 10px 0;
-    border-bottom: 1px solid #f4f4f4;
-}
-
-.lista-valores li:last-child {
-    border-bottom: none;
-}
-
-/* Sección Equipo */
-.seccion-equipo {
-    text-align: center;
-    padding: 40px;
-    background-color: #333;
-    color: white;
-    border-radius: 8px;
-}
-
-.seccion-equipo h2 {
-    color: #ffcc00; /* Dorado para resaltar al equipo */
-    margin-bottom: 15px;
-}
-
-
-/* --- ESTILOS PARA LA PÁGINA DE RECOMENDACIONES (PLATILLOS) --- */
-
-.titulo-seccion {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.titulo-seccion h2 {
-    color: #a01a1a;
-    font-size: 2rem;
-}
-
-.contenedor-tips {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.tarjeta-tip {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.tarjeta-tip:hover {
-    transform: scale(1.02); /* Efecto sutil al pasar el mouse */
-}
-
-.imagen-tip {
-    flex: 0 0 180px; /* Ajustado ligeramente para que se vea mejor el platillo */
-    height: 180px;
-}
-
-.imagen-tip img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la foto del platillo no se deforme */
-}
-
-.contenido-tip {
-    padding: 20px;
-    flex: 1;
-}
-
-.contenido-tip h3 {
-    color: #a01a1a;
-    margin-bottom: 10px;
-}
-
-.contenido-tip p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-/* Etiqueta de tipo de platillo */
-.etiqueta {
-    display: inline-block;
-    background-color: #f4f4f4;
-    color: #a01a1a;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 20px;
-    text-transform: uppercase;
-    border: 1px solid #a01a1a;
-}
-
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 600px) {
-    .tarjeta-tip {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .imagen-tip {
-        width: 100%;
-        height: 200px;
-        flex: none;
-    }
-}
-
-
-/* --- TARJETAS (CAPA INFERIOR) --- */
-.tarjeta-tip, .tarjeta-sucursal, .tarjeta-nosotros, .tarjeta-login {
-    position: relative; 
-    z-index: 1; /* Un número bajo para que pasen POR DEBAJO del header */
-    
-    background-color: white;
-    /* ... el resto de tu código de sombras y bordes ... */
-}
-
-
-/* --- ESTILOS PARA LA PÁGINA DE INICIO (INDEX) --- */
-
-/* Contenedor para alinear las secciones de abajo */
-.contenedor-inicio-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.tarjeta-inicio {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex: 1;
-    min-width: 320px;
-    max-width: 550px;
-    text-align: center;
-    border-top: 5px solid #a01a1a;
-}
-
-.tarjeta-inicio h2, .tarjeta-inicio h3 {
-    color: #a01a1a;
-    margin-bottom: 20px;
-}
-
-.resaltado-visita {
-    margin-top: 20px;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-/* Estilo especial para el anuncio de carnitas */
-.especial-borde {
-    background-color: #fffcf0; /* Un tono crema muy ligero */
-    border-top: 5px solid #ffcc00; /* Dorado para las carnitas */
-}
-
-.icono-carnitas {
-    font-size: 2.5rem;
-    margin-top: 15px;
-}
-
-/* --- REFUERZO DE CAPAS (Z-INDEX) --- */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999; /* El header siempre al frente */
-}
-
+/* 5. SECCIONES ESPECÍFICAS*/
 .hero-image {
-    z-index: 1;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/portada_carniceria.jpg');
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--blanco);
 }
 
-.tarjeta-inicio {
-    z-index: 10;
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 50px 0;
+    margin-top: auto; /* Empuja el footer al final */
+    text-align: center;
+    border-top: 5px solid var(--rojo-lizz);
+}
+
+/* Estilos para Formularios en el Perfil */
+.formulario-lizz input:focus {
+    outline: none;
+    border-color: var(--rojo-lizz);
+    box-shadow: 0 0 5px rgba(183, 28, 28, 0.2);
+}
+
+.card-lizz h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
 }
