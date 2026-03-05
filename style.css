@@ -13,11 +13,12 @@ body {
 }
 
 header {
-    background-color: #000000; /* Rojo institucional */
+    background-color: #000000; 
     color: white;
     padding: 10px 0; /* Header delgado: 10px arriba/abajo */
     position: sticky; /* Se queda fijo al bajar (opcional) */
     top: 0;
+    z-index: 9999; /* Un número alto asegura que siempre esté arriba de todo */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra elegante */
 }
 
@@ -148,4 +149,423 @@ footer p {
 /* Opcional: una línea roja decorativa arriba del footer para unir el concepto */
 footer {
     border-top: 5px solid #a01a1a; 
+}
+
+/* --- ESTILO PROFESIONAL PARA TABLAS --- */
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio doble entre bordes */
+    margin: 20px 0;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+table thead tr {
+    background-color: #a01a1a; /* Rojo institucional */
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+table th, table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Efecto "Cebreado" (Zebra Striping) */
+table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9; /* Gris muy clarito para filas pares */
+}
+
+/* Efecto Hover: Resalta la fila donde está el mouse */
+table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Estilo para las imágenes dentro de la tabla */
+table img {
+    border-radius: 5px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+/* Contenedor que alinea las tarjetas una al lado de la otra o abajo */
+.contenedor-perfil {
+    display: flex;
+    flex-wrap: wrap; /* Para que en pantallas chicas se ponga uno abajo del otro */
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 5%;
+}
+
+/* Estilo de la "Tarjeta" del formulario */
+.tarjeta-login {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px; /* Evita que el formulario sea demasiado ancho */
+    border-top: 4px solid #a01a1a; /* Detalle rojo arriba */
+}
+
+/* Estilo de los campos de entrada */
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="email"], 
+input[type="password"], 
+input[type="text"], 
+input[type="tel"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Muy importante para que el padding no desborde el ancho */
+    transition: 0.3s;
+}
+
+/* Efecto cuando el usuario hace clic en el cuadro */
+input:focus, textarea:focus {
+    border-color: #a01a1a;
+    outline: none;
+    box-shadow: 0 0 5px rgba(160, 26, 26, 0.2);
+}
+
+/* El botón de acción */
+.boton-rojo {
+    width: 100%;
+    background-color: #a01a1a;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-rojo:hover {
+    background-color: #333;
+}
+
+
+/* --- ESTILOS PARA LA PÁGINA DE SUCURSALES --- */
+
+.contenedor-sucursales {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.tarjeta-sucursal {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap; /* Se adapta a móviles */
+    width: 100%;
+    max-width: 850px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-top: 5px solid #a01a1a;
+}
+
+.info-sucursal, .info-horarios {
+    flex: 1;
+    padding: 30px;
+    min-width: 300px;
+}
+
+.info-sucursal h3, .info-horarios h3 {
+    color: #a01a1a;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.info-sucursal address {
+    font-style: normal;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el botón del mapa */
+.boton-mapa {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.boton-mapa:hover {
+    background-color: #a01a1a;
+}
+
+.info-horarios ul {
+    list-style: none;
+}
+
+.info-horarios li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-horarios li.especial {
+    color: #a01a1a;
+    font-weight: bold;
+    border-bottom: none;
+    text-align: center;
+    margin-top: 10px;
+    background-color: #fff8f8;
+}
+
+/* --- ESTILOS PARA LA PÁGINA CONÓZCANOS (EMPRESA) --- */
+
+/* Sección de Historia */
+.seccion-historia {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    border-left: 6px solid #a01a1a;
+}
+
+.seccion-historia h2 {
+    color: #a01a1a;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de Tarjetas Misión/Valores */
+.contenedor-nosotros-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.tarjeta-nosotros {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    border-top: 5px solid #a01a1a;
+}
+
+.tarjeta-nosotros h3 {
+    color: #a01a1a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Estilo de la lista de valores */
+.lista-valores {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-valores li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.lista-valores li:last-child {
+    border-bottom: none;
+}
+
+/* Sección Equipo */
+.seccion-equipo {
+    text-align: center;
+    padding: 40px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+}
+
+.seccion-equipo h2 {
+    color: #ffcc00; /* Dorado para resaltar al equipo */
+    margin-bottom: 15px;
+}
+
+
+/* --- ESTILOS PARA LA PÁGINA DE RECOMENDACIONES (PLATILLOS) --- */
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-seccion h2 {
+    color: #a01a1a;
+    font-size: 2rem;
+}
+
+.contenedor-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tarjeta-tip {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.tarjeta-tip:hover {
+    transform: scale(1.02); /* Efecto sutil al pasar el mouse */
+}
+
+.imagen-tip {
+    flex: 0 0 180px; /* Ajustado ligeramente para que se vea mejor el platillo */
+    height: 180px;
+}
+
+.imagen-tip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la foto del platillo no se deforme */
+}
+
+.contenido-tip {
+    padding: 20px;
+    flex: 1;
+}
+
+.contenido-tip h3 {
+    color: #a01a1a;
+    margin-bottom: 10px;
+}
+
+.contenido-tip p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Etiqueta de tipo de platillo */
+.etiqueta {
+    display: inline-block;
+    background-color: #f4f4f4;
+    color: #a01a1a;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border: 1px solid #a01a1a;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+    .tarjeta-tip {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .imagen-tip {
+        width: 100%;
+        height: 200px;
+        flex: none;
+    }
+}
+
+
+/* --- TARJETAS (CAPA INFERIOR) --- */
+.tarjeta-tip, .tarjeta-sucursal, .tarjeta-nosotros, .tarjeta-login {
+    position: relative; 
+    z-index: 1; /* Un número bajo para que pasen POR DEBAJO del header */
+    
+    background-color: white;
+    /* ... el resto de tu código de sombras y bordes ... */
+}
+
+
+/* --- ESTILOS PARA LA PÁGINA DE INICIO (INDEX) --- */
+
+/* Contenedor para alinear las secciones de abajo */
+.contenedor-inicio-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.tarjeta-inicio {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 320px;
+    max-width: 550px;
+    text-align: center;
+    border-top: 5px solid #a01a1a;
+}
+
+.tarjeta-inicio h2, .tarjeta-inicio h3 {
+    color: #a01a1a;
+    margin-bottom: 20px;
+}
+
+.resaltado-visita {
+    margin-top: 20px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Estilo especial para el anuncio de carnitas */
+.especial-borde {
+    background-color: #fffcf0; /* Un tono crema muy ligero */
+    border-top: 5px solid #ffcc00; /* Dorado para las carnitas */
+}
+
+.icono-carnitas {
+    font-size: 2.5rem;
+    margin-top: 15px;
+}
+
+/* --- REFUERZO DE CAPAS (Z-INDEX) --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* El header siempre al frente */
+}
+
+.hero-image {
+    z-index: 1;
+}
+
+.tarjeta-inicio {
+    z-index: 10;
 }

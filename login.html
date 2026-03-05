@@ -30,53 +30,43 @@
     </header>
 
     <main>
-        <section id="login">
-            <h2>Ingresar a mi Cuenta</h2>
-            <p>Si ya eres cliente, introduce tus datos para pedir en línea:</p>
-            
-            <form action="#" method="POST">
-                <p>Correo Electrónico:</p>
+        <main class="contenedor-perfil">
+    <section class="tarjeta-login">
+        <h2>Ingresar a mi Cuenta</h2>
+        <form action="#" method="POST">
+            <div class="campo">
+                <label>Correo Electrónico:</label>
                 <input type="email" name="user_email" placeholder="ejemplo@correo.com" required>
+            </div>
 
-                <p>Contraseña:</p>
+            <div class="campo">
+                <label>Contraseña:</label>
                 <input type="password" name="user_password" required>
+            </div>
 
-                <br><br>
-                <input type="submit" value="Entrar a mi Perfil">
-            </form>
-        </section>
+            <input type="submit" value="Entrar a mi Perfil" class="boton-rojo">
+        </form>
+    </section>
 
-        <section id="registro">
-            <hr>
-            <h2>¿Eres nuevo en Carnicería Lizz?</h2>
-            <p>Regístrate para guardar tu dirección y agilizar tus pedidos:</p>
-
-            <form action="#" method="POST">
-                <p>Nombre Completo:</p>
+    <section class="tarjeta-login">
+        <h2>Registro de Clientes</h2>
+        <form action="#" method="POST">
+            <div class="campo">
+                <label>Nombre Completo:</label>
                 <input type="text" name="nombre_completo" required>
+            </div>
 
-                <p>Teléfono (WhatsApp):</p>
-                <input type="tel" name="telefono" placeholder="4430000000">
+            <div class="campo">
+                <label>Dirección de Entrega:</label>
+                <input type="text" name="direccion_entrega" placeholder="Calle, número y colonia" required>
+            </div>
 
-                <p>Dirección de Entrega:</p>
-                <textarea name="direccion_entrega" rows="3" cols="40" placeholder="Calle, número y colonia..."></textarea>
-
-                <p>¿Cómo prefieres recibir confirmación?</p>
-                <input type="radio" name="aviso" value="wa"> WhatsApp
-                <input type="radio" name="aviso" value="ll"> Llamada
-                
-                <br><br>
-                <input type="submit" value="Crear mi Cuenta">
-                <input type="reset" value="Limpiar Formulario">
-            </form>
-        </section>
-    </main>
+            <input type="submit" value="Crear mi Cuenta" class="boton-rojo">
+        </form>
+    </section>
+     </main>
 
     
-
-    <footer>
-        <p>Carnicería Lizz © 2026 - Tu carnicería de confianza en la Obrera.</p>
-    </footer>
 
 </body>
 </html>

@@ -10,63 +10,65 @@
 
     <header>
         <div class="contenedor-header">
-        <div class="marca">
-            <a href="index.html">
-            <img src="img/logo_carniceria.png" alt="Logo" width="80">
-            </a>
-        </div>
-        
-        <nav>
-            <p>
-                <a href="index.html">Inicio</a>  
-                <a href="menu_prod.html">Menú de Productos</a>  
-                <a href="sucursales.html">Sucursales</a>  
-                <a href="recomendaciones.html">Recomendaciones</a> 
-                <a href="empresa.html">Conozcanos</a> 
-                <a href="login.html">Mi Perfil</a>
-            </p>
-        </nav>
+            <div class="marca">
+                <a href="index.html">
+                    <img src="img/logo_carniceria.png" alt="Logo" width="80">
+                </a>
+            </div>
+            
+            <nav>
+                <p>
+                    <a href="index.html">Inicio</a>  
+                    <a href="menu_prod.html">Menú de Productos</a>  
+                    <a href="sucursales.html">Sucursales</a>  
+                    <a href="recomendaciones.html">Recomendaciones</a> 
+                    <a href="empresa.html">Conozcanos</a> 
+                    <a href="login.html">Mi Perfil</a>
+                </p>
+            </nav>
         </div>
     </header>
 
     <main>
         <section id="ubicacion">
-            <h2>Nuestras Ubicaciones</h2>
-            <p>Visítanos y comprueba la calidad de nuestros cortes frescos.</p>
+            <div class="titulo-pagina">
+                <h2>Nuestras Ubicaciones</h2>
+                <p>Visítanos y comprueba la calidad de nuestros cortes frescos.</p>
+            </div>
 
-            <article>
-                <h3>Sucursal Obrera (Principal)</h3>
-                
-                <address>
-                    Calle: Primo Tapia, Colonia Obrera #346<br>
-                    Morelia, Michoacán, México.<br>
-                    Teléfono: 443-000-00-00
-                </address>
-                
-                <br>
-                
-                <div class="enlace-mapa">
-                    <a href="https://maps.google.com" target="_blank">
-                        <strong>Haz clic aquí para ver nuestra ubicación en el mapa</strong>
-                    </a>
-                </div>
-            </article>
-        </section>
+            <div class="contenedor-sucursales">
+                <article class="tarjeta-sucursal">
+                    <div class="info-sucursal">
+                        <h3>Sucursal Obrera (Principal)</h3>
+                        
+                        <address>
+                            <strong>Calle:</strong> Primo Tapia, Colonia Obrera #346<br>
+                            <strong>Ciudad:</strong> Morelia, Michoacán, México.<br>
+                            <strong>Teléfono:</strong> 443-000-00-00
+                        </address>
+                        
+                        <div class="enlace-mapa">
+                            <a href="https://maps.google.com" target="_blank" class="boton-mapa">
+                                Ver ubicación en el mapa
+                            </a>
+                        </div>
+                    </div>
 
-        <section id="horarios">
-            <hr>
-            <h3>Horarios de Atención</h3>
-            <ul>
-                <li><strong>Lunes a Sabado:</strong> 8:30 AM - 4:00 PM</li>
-                <li><strong>Domingos:</strong> 8:30 AM - 2:00 PM (¡Día de Carnitas!)</li>
-            </ul>
+                    <div class="info-horarios">
+                        <h3>Horarios de Atención</h3>
+                        <ul>
+                            <li><strong>Lunes a Sabado:</strong> 8:30 AM - 4:00 PM</li>
+                            <li><strong>Domingos:</strong> 8:30 AM - 2:00 PM</li>
+                            <li class="especial">¡Día de Carnitas!</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
-    
-
     <footer>
-        <p>Carnicería Lizz &copy; 2026 - Calidad en cada corte.</p>
+        <p>Carnicería Lizz © 2026 - Todos los derechos reservados.</p>
     </footer>
 
 </body>
