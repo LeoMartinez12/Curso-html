@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background-color: #a01a1a; /* Rojo institucional */
+    background-color: #000000; /* Rojo institucional */
     color: white;
     padding: 10px 0; /* Header delgado: 10px arriba/abajo */
     position: sticky; /* Se queda fijo al bajar (opcional) */
@@ -23,25 +23,31 @@ header {
 
 .contenedor-header {
     display: flex;
-    justify-content: space-between; /* Logo a la izq, Menú a la der */
-    align-items: center; /* Centra verticalmente */
-    /* Usamos un ancho del 95% para que esté muy pegado a las orillas */
+    justify-content: space-between;
+    align-items: center; /* Esto alinea verticalmente el logo, el texto y el menú */
     width: 96%; 
-    margin: 0 auto; /* Centra el contenedor pero permitiendo que use casi todo el ancho */
+    margin: 0 auto;
 }
 
 .marca {
     display: flex;
-    align-items: center;
-    gap: 10px; /* Separación entre logo y nombre */
-    font-size: 1.5rem;
+    align-items: center; /* Asegura que el texto "Carnicería Lizz" esté a la misma altura que el centro del logo */
+    gap: 15px;
+    text-decoration: none !important; /* ELIMINA LA LÍNEA DE SUBRAYADO */
+    color: white !important; /* ELIMINA EL COLOR AZUL DE ENLACE */
+    font-size: 1.6rem;
     font-weight: bold;
-    text-decoration: none; /* Quita el subrayado del enlace del logo */
-    color: white; /* Asegura que el texto siga siendo blanco */
+}
+
+.marca:visited, .marca:active, .marca:hover {
+    color: white; /* Mantiene el color blanco aunque ya hayas hecho clic */
+    text-decoration: none;
 }
 
 .marca img {
-    border-radius: 50%; /* Hace el logo circular si es cuadrado */
+    display: block; /* Quita espacios fantasma debajo de la imagen */
+    height: 50px;   /* Ajusta esto según el tamaño que desees */
+    width: auto;
 }
 
 nav {
@@ -61,4 +67,48 @@ nav a {
 nav a:hover {
     color: #ffcc00;
     border-bottom: 2px solid #f8f2da; /* Línea decorativa al pasar el mouse */
+}
+
+/*ESTILO DE LA IMAGEN DE BIENVENIDA */
+
+.hero-image {
+    /* Ruta de tu imagen principal */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/portada_carniceria.jpg');
+    
+    height: 500px; /* Altura de la sección */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Hace que la imagen cubra todo el espacio sin deformarse */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.contenido-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para que resalte del fondo */
+}
+
+.contenido-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.boton-accion {
+    background-color: #a01a1a; /* Rojo institucional */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.boton-accion:hover {
+    background-color: #ffcc00;
+    color: #333;
 }
