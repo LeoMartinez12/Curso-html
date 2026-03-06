@@ -1,0 +1,273 @@
+/* 1. VARIABLES Y CONFIGURACIÓN BASE*/
+:root {
+    --rojo-lizz: #a01a1a;
+    --dorado: #ffcc00;
+    --negro: #000000;
+    --gris-oscuro: #333333;
+    --gris-fondo: #f4f4f4;
+    --blanco: #ffffff;
+    --sombra: 0 4px 15px rgba(0,0,0,0.1);
+    --transicion: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--gris-fondo);
+    color: var(--gris-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 2. HEADER Y NAVEGACIÓN (Layout Global*/
+header {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10000; /* Prioridad máxima */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.contenedor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none !important;
+    color: var(--blanco) !important;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.marca img { height: 50px; width: auto; }
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.9rem;
+    transition: var(--transicion);
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--dorado);
+    border-bottom: 2px solid var(--dorado);
+}
+
+.flex-layout {
+    display: flex;          /* Activa el diseño flexible */
+    flex-wrap: wrap;       /* Si no caben, las manda abajo (ideal para celulares) */
+    gap: 25px;             /* El espacio exacto entre cada tarjeta */
+    justify-content: center; /* Centra las tarjetas en la pantalla */
+    padding: 20px;
+    align-items: stretch;  /* Hace que todas las tarjetas tengan la misma altura */
+}
+
+.card-lizz {
+    flex: 1;               /* Permite que la tarjeta crezca */
+    min-width: 300px;      /* Pero que no sea más pequeña de 300px */
+    max-width: 450px;      /* Y que no sea gigante en pantallas grandes */
+    background: var(--blanco);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-top: 5px solid var(--rojo-lizz);
+    padding: 20px;
+    transition: var(--transicion);
+}
+
+/* 3. COMPONENTES REUTILIZABLES (Clases Maestras)*/
+
+/* Contenedor Flexible Universal para tarjetas */
+.flex-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 5%;
+}
+
+/* LA TARJETA UNIVERSAL LIZZ */
+.card-lizz {
+    background-color: var(--blanco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-top: 5px solid var(--rojo-lizz);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+    transition: var(--transicion);
+}
+
+.card-lizz:hover { transform: translateY(-5px); }
+
+/* Variación para anuncios o elementos especiales */
+.card-especial {
+    border-top-color: var(--dorado);
+    background-color: #fffcf0;
+}
+
+/* Botón Universal */
+.btn-lizz {
+    display: inline-block;
+    background-color: var(--rojo-lizz);
+    color: var(--blanco);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: var(--transicion);
+}
+
+.btn-lizz:hover { background-color: var(--gris-oscuro); color: var(--blanco); }
+
+.card-lizz ul {
+    padding-left: 0;
+}
+
+.card-lizz h3 {
+    margin-bottom: 15px;
+    color: var(--rojo-lizz);
+}
+
+address {
+    line-height: 1.8;
+}
+
+/* --- Estilos para Recetas --- */
+
+.contenedor-foto-receta {
+    width: 100%;
+    height: 200px; /* Altura fija para que todas las tarjetas se vean iguales */
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.foto-receta {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin estirarla */
+    transition: var(--transicion);
+}
+
+
+.contenido-receta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--rojo-lizz);
+}
+
+.etiqueta-lizz {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 12px;
+    background-color: var(--gris-fondo);
+    color: var(--rojo-lizz);
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid var(--rojo-lizz);
+}
+
+
+
+/* 4. FORMULARIOS Y TABLAS*/
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: var(--transicion);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--rojo-lizz);
+    outline: none;
+    box-shadow: 0 0 5px rgba(160, 26, 26, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--blanco);
+    box-shadow: var(--sombra);
+}
+
+table thead tr { background-color: var(--rojo-lizz); color: var(--blanco); }
+
+table th, table td { padding: 15px 20px; border-bottom: 1px solid #ddd; }
+
+table tbody tr:nth-of-type(even) { background-color: #f9f9f9; }
+
+table img {
+    border-radius: 4px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centra la imagen en su celda */
+}
+
+table td {
+    vertical-align: middle; /* Alinea el texto con el centro de la imagen */
+    text-align: center;
+}
+
+/* 5. SECCIONES ESPECÍFICAS*/
+.hero-image {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/portada_carniceria.jpg');
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--blanco);
+}
+
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 50px 0;
+    margin-top: auto; /* Empuja el footer al final */
+    text-align: center;
+    border-top: 5px solid var(--rojo-lizz);
+}
+
+/* Estilos para Formularios en el Perfil */
+.formulario-lizz input:focus {
+    outline: none;
+    border-color: var(--rojo-lizz);
+    box-shadow: 0 0 5px rgba(183, 28, 28, 0.2);
+}
+
+.card-lizz h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}

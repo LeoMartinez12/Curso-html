@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="img/logo_carniceria.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Carnicería Lizz - Mi Perfil</title>
+</head>
+<body>
+
+    <header>
+        <div class="contenedor-header">
+            <div class="marca">
+                <a href="index.html">
+                    <img src="img/logo_carniceria.png" alt="Logo" width="80">
+                </a>
+                <span>Carnicería Lizz</span>
+            </div>
+            
+            <nav>
+                <p>
+                    <a href="index.html">Inicio</a> 
+                    <a href="menu_prod.html">Menú de Productos</a> 
+                    <a href="sucursales.html">Sucursales</a> 
+                    <a href="recomendaciones.html">Recomendaciones</a>
+                    <a href="empresa.html">Conozcanos</a>
+                    <a href="login.html">Mi Perfil</a>
+                </p>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2>Gestión de Clientes</h2>
+            <p>Accede a beneficios exclusivos y pedidos rápidos.</p>
+        </div>
+
+        <div class="flex-layout">
+            
+            <section class="card-lizz" style="max-width: 450px;">
+                <h2 style="color: var(--rojo-lizz); margin-bottom: 20px;">Ingresar a mi Cuenta</h2>
+                <form action="#" method="POST" class="formulario-lizz">
+                    <div class="campo" style="margin-bottom: 15px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Correo Electrónico:</label>
+                        <input type="email" name="user_email" placeholder="ejemplo@correo.com" required 
+                               style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+
+                    <div class="campo" style="margin-bottom: 20px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Contraseña:</label>
+                        <input type="password" name="user_password" required 
+                               style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+
+                    <button type="submit" class="btn-lizz" style="width: 100%; border: none; cursor: pointer;">
+                        Entrar a mi Perfil
+                    </button>
+                </form>
+            </section>
+
+            <section class="card-lizz" style="max-width: 450px;">
+                <h2 style="color: var(--rojo-lizz); margin-bottom: 20px;">Registro de Clientes</h2>
+                <form action="#" method="POST" class="formulario-lizz">
+                    <div class="campo" style="margin-bottom: 15px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre Completo:</label>
+                        <input type="text" name="nombre_completo" placeholder="Tu nombre" required 
+                               style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+
+                    <div class="campo" style="margin-bottom: 20px; text-align: left;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Dirección de Entrega:</label>
+                        <input type="text" name="direccion_entrega" placeholder="Calle, número y colonia" required 
+                               style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+
+                    <button type="submit" class="btn-lizz" style="width: 100%; border: none; cursor: pointer;">
+                        Crear mi Cuenta
+                    </button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <footer style="margin-top: 50px;">
+        <p>Carnicería Lizz &copy; 2026 - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
