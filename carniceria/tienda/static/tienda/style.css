@@ -1,4 +1,15 @@
 /* 1. VARIABLES Y CONFIGURACIÓN BASE*/
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #900;
+    color: #fff;
+    padding: 10px;
+}
+
 :root {
     --rojo-lizz: #a01a1a;
     --dorado: #ffcc00;
