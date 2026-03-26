@@ -1,40 +1,21 @@
-# tienda/views.py
-from django.shortcuts import render
-
-def index(request):
-    return render(request, 'tienda/index.html')
-
-def login(request):
-    return render(request, 'tienda/login.html')
-
-def menu_prod(request):
-    return render(request, 'tienda/menu_prod.html')
-
-def recomendaciones(request):
-    return render(request, 'tienda/recomendaciones.html')
-
-def sucursales(request):
-    return render(request, 'tienda/sucursales.html')
-
-def empresa(request):
-    return render(request, 'tienda/empresa.html')
-
-def productos(request):
-    return render(request, 'tienda/productos.html')
-
-    # Simulación de base de datos
-USERS = []
-
+# views.py
 from django.shortcuts import render, redirect
 
+# Simulación de base de datos en memoria
+USERS = []
+
+# =====================
+# LOGIN
+# =====================
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
 
+        # Buscar usuario en USERS
         for user in USERS:
             if user["username"] == username and user["password"] == password:
-                request.session["user"] = username
+                request.session["user"] = username  # Guardar sesión
                 return redirect("index")
 
         return render(request, "tienda/login.html", {"error": "Credenciales incorrectas"})
@@ -42,6 +23,9 @@ def login_view(request):
     return render(request, "tienda/login.html")
 
 
+# =====================
+# REGISTRO
+# =====================
 def register_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -50,18 +34,55 @@ def register_view(request):
         # Verificar si ya existe
         for user in USERS:
             if user["username"] == username:
-                return render(request, "tienda/registro.html", {"error": "Usuario ya existe"})
+                return render(request, "tienda/login.html", {"error": "Usuario ya existe"})
 
+        # Agregar nuevo usuario
         USERS.append({
             "username": username,
             "password": password
         })
 
-        return redirect("login")
+        request.session["user"] = username  # Loguear automáticamente
+        return redirect("index")
 
-    return render(request, "tienda/registro.html")
+    return render(request, "tienda/login.html")
 
 
+# =====================
+# LOGOUT
+# =====================
 def logout_view(request):
-    request.session.flush()
+    request.session.flush()  # Borra la sesión
     return redirect("login")
+
+
+# =====================
+# VISTAS PRINCIPALES
+# =====================
+def index(request):
+    if "user" not in request.session:
+        return redirect("login")
+    return render(request, "tienda/index.html")
+
+
+def menu_prod(request):
+    if "user" not in request.session:
+        return redirect("login")
+    return render(request, "tienda/menu_prod.html")  # <-- coincide con el nombre real
+
+def recomendaciones(request):
+    if "user" not in request.session:
+        return redirect("login")
+    return render(request, "tienda/recomendaciones.html")
+
+
+def sucursales(request):
+    if "user" not in request.session:
+        return redirect("login")
+    return render(request, "tienda/sucursales.html")
+
+
+def empresa(request):
+    if "user" not in request.session:
+        return redirect("login")
+    return render(request, "tienda/empresa.html")

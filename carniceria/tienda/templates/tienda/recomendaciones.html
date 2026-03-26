@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="{% static 'tienda/images/logo_carniceria.png' %}">
     <link rel="stylesheet" href="{% static 'tienda/style.css' %}">
-    <title>Carnicería Lizz - Inicio</title>
+    <title>Carnicería Lizz - Recomendaciones</title>
 </head>
 <body>
     <header>
         <div class="contenedor-header">
             <div class="marca">
                 <a href="{% url 'index' %}">
-                   <img src="{% static 'tienda/img/logo_carniceria.png' %}" alt="Logo">
+                   <img src="{% static 'tienda/images/logo_carniceria.png' %}" alt="Logo">
                 </a>
                 <span>Carnicería Lizz</span>
             </div>
@@ -23,7 +23,12 @@
                     <a href="{% url 'sucursales' %}">Sucursales</a>  
                     <a href="{% url 'recomendaciones' %}">Recomendaciones</a>  
                     <a href="{% url 'empresa' %}">Conózcanos</a>  
-                    <a href="{% url 'login' %}">Mi Perfil</a>
+
+                    {% if request.session.user %}
+                        <span>Hola, {{ request.session.user }} | <a href="{% url 'logout' %}">Cerrar sesión</a></span>
+                    {% else %}
+                        <a href="{% url 'login' %}">Mi Perfil</a>
+                    {% endif %}
                 </p>
             </nav>
         </div>
@@ -40,7 +45,7 @@
                 
                 <article class="card-lizz">
                     <div class="contenedor-foto-receta">
-                        <img src="img/platillo1.jpg" alt="Asado de Arrachera" class="foto-receta">
+                        <img src="{% static 'tienda/images/platillo1.jpg' %}" alt="Asado de Arrachera" class="foto-receta">
                     </div>
                     <div class="contenido-receta">
                         <h3>Asado de Arrachera Marinada</h3>
@@ -51,7 +56,7 @@
 
                 <article class="card-lizz">
                     <div class="contenedor-foto-receta">
-                        <img src="img/platillo2.jpg" alt="Bistec a la Mexicana" class="foto-receta">
+                        <img src="{% static 'tienda/images/platillo2.jpg' %}" alt="Bistec a la Mexicana" class="foto-receta">
                     </div>
                     <div class="contenido-receta">
                         <h3>Bistec a la Mexicana Especial</h3>
@@ -62,7 +67,7 @@
 
                 <article class="card-lizz">
                     <div class="contenedor-foto-receta">
-                        <img src="img/platillo3.jpg" alt="Caldo de Res" class="foto-receta">
+                        <img src="{% static 'tienda/images/platillo3.jpg' %}" alt="Caldo de Res" class="foto-receta">
                     </div>
                     <div class="contenido-receta">
                         <h3>Caldo de Res Tradicional</h3>
@@ -77,8 +82,6 @@
 
     <footer>
         <p>Carnicería Lizz &copy; 2026 - Todos los derechos reservados.</p>
-      
     </footer>
-
 </body>
-</html> 
+</html>

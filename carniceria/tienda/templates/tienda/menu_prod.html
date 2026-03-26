@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="{% static 'tienda/images/logo_carniceria.png' %}">
     <link rel="stylesheet" href="{% static 'tienda/style.css' %}">
-    <title>Carnicería Lizz - Inicio</title>
+    <title>Carnicería Lizz - Menú de Productos</title>
 </head>
 <body>
     <header>
         <div class="contenedor-header">
             <div class="marca">
                 <a href="{% url 'index' %}">
-                   <img src="{% static 'tienda/img/logo_carniceria.png' %}" alt="Logo">
+                   <img src="{% static 'tienda/images/logo_carniceria.png' %}" alt="Logo">
                 </a>
                 <span>Carnicería Lizz</span>
             </div>
@@ -23,7 +23,12 @@
                     <a href="{% url 'sucursales' %}">Sucursales</a>  
                     <a href="{% url 'recomendaciones' %}">Recomendaciones</a>  
                     <a href="{% url 'empresa' %}">Conózcanos</a>  
-                    <a href="{% url 'login' %}">Mi Perfil</a>
+
+                    {% if request.session.user %}
+                        <span>Hola, {{ request.session.user }} | <a href="{% url 'logout' %}">Cerrar sesión</a></span>
+                    {% else %}
+                        <a href="{% url 'login' %}">Mi Perfil</a>
+                    {% endif %}
                 </p>
             </nav>
         </div>
@@ -31,7 +36,8 @@
 
     <main>
         <div class="flex-layout">
-            
+
+            <!-- Sección de productos -->
             <section class="card-lizz" style="max-width: 900px;">
                 <h2>Lista de Precios y Productos</h2>
                 <p>Contamos con la mejor calidad en carnes de res y cerdo.</p>
@@ -47,74 +53,75 @@
                     <tbody>
                         <tr>
                             <td>Filete</td>
-                            <td><img src="img/filete.png" width="60" alt="Filete"></td>
+                            <td><img src="{% static 'tienda/images/filete.png' %}" width="60" alt="Filete"></td>
                             <td>$165</td>
                         </tr>
                         <tr>
                             <td>Arrachera marinada</td>
-                            <td><img src="img/arrachera.png" width="60" alt="Arrachera"></td>
+                            <td><img src="{% static 'tienda/images/arrachera.png' %}" width="60" alt="Arrachera"></td>
                             <td>$165</td>
                         </tr>
                         <tr>
                             <td>Bistec</td>
-                            <td><img src="img/bistec.png" width="60" alt="Bistec"></td>
+                            <td><img src="{% static 'tienda/images/bistec.png' %}" width="60" alt="Bistec"></td>
                             <td>$145</td>
                         </tr>
                         <tr>
                             <td>Molida</td>
-                            <td><img src="img/molida.jpg" width="60" alt="Molida"></td>
+                            <td><img src="{% static 'tienda/images/molida.jpg' %}" width="60" alt="Molida"></td>
                             <td>$145</td>
                         </tr>
                         <tr>
                             <td>Falda</td>
-                            <td><img src="img/falda.png" width="60" alt="Falda"></td>
+                            <td><img src="{% static 'tienda/images/falda.png' %}" width="60" alt="Falda"></td>
                             <td>$145</td>
                         </tr>
                         <tr>
                             <td>Cocido</td>
-                            <td><img src="img/cocido.jpg" width="60" alt="Cocido"></td>
+                            <td><img src="{% static 'tienda/images/cocido.jpg' %}" width="60" alt="Cocido"></td>
                             <td>$110</td>
                         </tr>
                         <tr>
                             <td>Mixta de cerdo</td>
-                            <td><img src="img/mixta.png" width="60" alt="Mixta"></td>
+                            <td><img src="{% static 'tienda/images/mixta.png' %}" width="60" alt="Mixta"></td>
                             <td>$115</td>
                         </tr>
                         <tr>
                             <td>Espinazo</td>
-                            <td><img src="img/espinazo.png" width="60" alt="Espinazo"></td>
+                            <td><img src="{% static 'tienda/images/espinazo.png' %}" width="60" alt="Espinazo"></td>
                             <td>$90</td>
                         </tr>
                         <tr>
                             <td>Costilla p/freír</td>
-                            <td><img src="img/cositlla.jpg" width="60" alt="Costilla"></td>
+                            <td><img src="{% static 'tienda/images/costilla.jpg' %}" width="60" alt="Costilla"></td>
                             <td>$90</td>
                         </tr>
                         <tr>
                             <td>Maciza</td>
-                            <td><img src="img/maciza.jpg" width="60" alt="Maciza"></td>
+                            <td><img src="{% static 'tienda/images/maciza.jpg' %}" width="60" alt="Maciza"></td>
                             <td>$145</td>
                         </tr>
                         <tr>
                             <td>Chamorro</td>
-                            <td><img src="img/chamorro.jpg" width="60" alt="Chamorro"></td>
+                            <td><img src="{% static 'tienda/images/chamorro.jpg' %}" width="60" alt="Chamorro"></td>
                             <td>$105</td>
                         </tr>
                         <tr>
                             <td>Cabeza de cerdo</td>
-                            <td><img src="img/cabeza.jpg" width="60" alt="Cabeza"></td>
+                            <td><img src="{% static 'tienda/images/cabeza.jpg' %}" width="60" alt="Cabeza"></td>
                             <td>$45</td>
                         </tr>
                         <tr>
                             <td>Patitas de cerdo</td>
-                            <td><img src="img/patitas.jpg" width="60" alt="Patitas"></td>
+                            <td><img src="{% static 'tienda/images/patitas.jpg' %}" width="60" alt="Patitas"></td>
                             <td>$35</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
-            <section class="card-lizz card-especial" style="max-width: 900px;">
+            <!-- Sección especial de carnitas -->
+            <section class="card-lizz card-especial" style="max-width: 900px; margin-top: 20px;">
                 <h3>Ricas Carnitas (Sábados y Domingos)</h3>
                 <p>¡Tradición y sabor en cada bocado!</p>
                 <table>
@@ -144,14 +151,13 @@
                     </tbody>
                 </table>
             </section>
-            
+
         </div>
     </main>
 
-    <footer>
+    <footer style="margin-top: 50px;">
         <p>Carnicería Lizz &copy; 2026 - Todos los derechos reservados.</p>
-     
     </footer>
 
 </body>
-</html> 
+</html>

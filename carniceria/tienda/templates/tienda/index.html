@@ -23,7 +23,12 @@
                     <a href="{% url 'sucursales' %}">Sucursales</a>  
                     <a href="{% url 'recomendaciones' %}">Recomendaciones</a>  
                     <a href="{% url 'empresa' %}">Conózcanos</a>  
-                    <a href="{% url 'login' %}">Mi Perfil</a>
+
+                    {% if request.session.user %}
+                        <span>Hola, {{ request.session.user }} | <a href="{% url 'logout' %}">Cerrar sesión</a></span>
+                    {% else %}
+                        <a href="{% url 'login' %}">Mi Perfil</a>
+                    {% endif %}
                 </p>
             </nav>
         </div>
@@ -34,21 +39,29 @@
             <div class="contenido-hero">
                 <h1>Calidad y Frescura en cada corte</h1>
                 <p>Desde 2010 sirviendo a las familias de la Colonia Obrera.</p>
-                <a href="menu_prod.html" class="btn-lizz">Ver Menú de Hoy</a>
+                <a href="{% url 'menu' %}" class="btn-lizz">Ver Menú de Hoy</a>
             </div>
         </section>
+
+        <!-- Mensaje opcional para usuario logueado -->
+        {% if request.session.user %}
+        <section style="text-align:center; margin:40px 0;">
+            <h2>Bienvenido, {{ request.session.user }}!</h2>
+            <p>Gracias por iniciar sesión. Disfruta de nuestros productos frescos.</p>
+        </section>
+        {% endif %}
+
     </main>
 
     <footer>
         <p>Carnicería Lizz &copy; 2026 - Todos los derechos reservados.</p>
         <p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss"
-            alt="¡CSS Válido!" />
-    </a>
-</p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss"
+                    alt="¡CSS Válido!" />
+            </a>
+        </p>
     </footer>
-
 </body>
-</html> 
+</html>

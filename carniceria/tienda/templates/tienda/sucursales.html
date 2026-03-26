@@ -24,6 +24,11 @@
                     <a href="{% url 'recomendaciones' %}">Recomendaciones</a>  
                     <a href="{% url 'empresa' %}">Conózcanos</a>  
                     <a href="{% url 'login' %}">Mi Perfil</a>
+                    {% if request.session.user %}
+                        <span>Hola, {{ request.session.user }} | <a href="{% url 'logout' %}">Cerrar sesión</a></span>
+                    {% else %}
+                        <a href="{% url 'login' %}">Mi Perfil</a>
+                    {% endif %}
                 </p>
             </nav>
         </div>
